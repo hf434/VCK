@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html40/strict.dtd">
+<HTML>
+<HEAD>
+<meta name="viewport" content="width=device-width, target-densitydpi=device-dpi" />
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+   function androidCallJS(name){
+      alert("android call me!"+name);
+   }
+   function shareData(){
+     ykAPP.shareTitleTextUrlOneUrlTwo("标题","内容","https://www.baidu.com/","https://www.baidu.com/");
+   }
+   function alipayData(){
+     ykAPP.alipay("title","content","price","sn","http://www.open-open.com/lib/view/open1451975281698.html","","");
+   }
+    function wxpayData(){
+     ykAPP.wxpay("","prepay_id","","","");
+   }
+</script>
+</HEAD>
+<BODY>
+
+<button id='btntest' onclick='shareData()'>分享</button>
+<button id='btntest' onclick='alipayData()'>支付宝支付</button>
+<button id='btntest' onclick='wxpayData()'>微信支付</button>
+</BODY>
+</HTML>

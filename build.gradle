@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+dependencies {
+    implementation fileTree(include: '*.jar', dir: 'libs')
+    implementation 'com.amap.api:location:latest.integration'
+    implementation 'com.amap.api:navi-3dmap:latest.integration'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.3.1'
+    implementation 'com.aliyun.video.android:upload:1.5.2'
+    implementation 'com.aliyun.dpa:oss-android-sdk:+'
+    implementation('cn.yipianfengye.android:zxing-library:2.2', {
+        exclude group: 'com.android.support'
+    })
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "com.android.support:multidex:1.0.3"
+    //安全权限
+    implementation 'com.yanzhenjie:permission:2.0.0-rc12'
+    //知乎相册
+    implementation 'com.zhihu.android:matisse:0.5.0-beta3'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //图片加载
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.4.0'
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.0.3'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
+}
+
+android {
+    signingConfigs {
+        keystore {
+            keyAlias 'ytsc'
+            keyPassword '123456'
+            storeFile file('ytscinex.keystore')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        applicationId "com.ytscinex"
+        multiDexEnabled true
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a"//,"arm64-v8a", "x86"
+        }
+    }
+    dexOptions {
+        preDexLibraries = false
+        javaMaxHeapSize "2g"//（后面会解释这行的意义）注释1
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+//        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.keystore
+        }
+        release {
+            signingConfig signingConfigs.keystore
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+MobSDK {
+    appKey "d580ad56b4b5"
+    appSecret "7fcae59a62342e7e2759e9e397c82bdd"
+
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+            Wechat {
+                appId "wxbfdeb46b925a227e"
+                appSecret "4922f9d21e66788e303358cb858c4825"
+            }
+        }
+    }
+}

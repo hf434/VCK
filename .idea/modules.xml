@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EaseUI/EaseUI.iml" filepath="$PROJECT_DIR$/.idea/modules/EaseUI/EaseUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/MyWebView.iml" filepath="$PROJECT_DIR$/.idea/modules/MyWebView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SMSSDK/SMSSDK.iml" filepath="$PROJECT_DIR$/.idea/modules/SMSSDK/SMSSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TestVidio/TestVidio.iml" filepath="$PROJECT_DIR$/.idea/modules/TestVidio/TestVidio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cloudorder/cloudorder.iml" filepath="$PROJECT_DIR$/.idea/modules/cloudorder/cloudorder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smart_library/smart_library.iml" filepath="$PROJECT_DIR$/.idea/modules/smart_library/smart_library.iml" />
+    </modules>
+  </component>
+</project>
